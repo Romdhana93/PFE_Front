@@ -1,0 +1,125 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <div class="row"> <img src="assets/vermegpng.png" class="logo1"> </div>
+
+
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a *ngIf="canAccess" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage Users & Role</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a routerLink="/home/addProfile">Add User</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/listProfil"> List User</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a *ngIf="canAccess" href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage Project</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu2">
+
+                    <li>
+                        <a routerLink="/home/gestionProjet">Add Project</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/listProjet">List Project</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a *ngIf="canAccess" href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Manage Test Case</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu3">
+
+                    <li>
+                        <a routerLink="/home/addTestCase">Add Test Case</a>
+                    </li>
+                    <li>
+                        <a routerLink="/home/listeTestCase">List Test case</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Test-Project</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a routerLink="/home/testProjet">All Projects</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="assets/Report2.html" target="_blank">Report</a>
+            </li>
+        </ul>
+
+        <div class="bg-blue  py-5 ">
+            <div class="row "> <small class="ml-1 ml-sm-5 mb-2">Copyright &copy; 2022. All rights reserved.</small>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light  topbar  static-top shadow">
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+            <!-- Topbar welcome -->
+            <form class="navbar-nav ml-auto ">
+
+            </form>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                <li class="nav-item dropdown no-arrow d-sm-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+
+                </li>
+
+
+
+
+
+                <div class="topbar-divider d-none d-sm-block"></div>
+
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Med Salah</span>
+                    </a>
+
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" (click)="logout()">
+                            <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+
+        </nav>
+        <router-outlet></router-outlet>
+    </div>
+</div>

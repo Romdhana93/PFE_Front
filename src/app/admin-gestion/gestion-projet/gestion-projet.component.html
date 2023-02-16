@@ -1,0 +1,43 @@
+<body>
+    <section>
+        <div class="mask d-flex align-items-center h-100 gradient-custom-2 ">
+            <div class="container  ">
+                <div class="row">
+                    <div class=" col-md-10  ">
+                        <div class="card ">
+                            <div class="card-body p-5 ">
+                                <h2 class=" text-center mb-5 alert-secondary ">You Can Add Project Now</h2>
+
+                                <form [formGroup]="projectForm">
+                                    <div class="form-group">
+                                        <label>Project Name</label>
+                                        <input type="text" class="form-control" name="naùe" id="tName" placeholder="Enter the name of the Projects " formControlName="name">
+                                        <div class="text-danger" *ngIf="submitted && f.name.errors">
+                                            <p>The project name Required.</p>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Description</label>
+
+                                        <input type="text" class="form-control" id="exampleInputClientName" placeholder="Enter the descreption of test case" formControlName="description">
+                                    </div>
+
+                                    <div class="text-center ">
+                                        <button type="submit" class="btn btn-secondary " (click)="addProjet()">Add Project </button>
+                                        <button type="reset" value="Reset" class="btn btn-warning ">Reset</button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

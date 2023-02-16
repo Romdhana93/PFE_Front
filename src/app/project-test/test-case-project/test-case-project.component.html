@@ -1,0 +1,80 @@
+<body>
+
+    <section>
+        <div class="mask d-flex align-items-center h-100 gradient-custom-2 ">
+            <div class="container  ">
+                <div class="row">
+                    <div class=" col-md-10">
+                        <div class="card ">
+                            <div class="card-body p-4 ">
+                                <h2 class=" text-center mb-5  alert-secondary ">Project : Chrysalide</h2>
+
+                                <div class="input-group" style="width: 10cm; margin-left: 17.4cm;">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="filterNom">
+                                    <div class="input-group-append">
+                                        <button class="btn  btn-secondary" type="button">
+                                                <i class="fa fa-search"> Search</i>  </button>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="body">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                            <thead class="text-center">
+                                                <tr>
+                                                    <th>Test case Name</th>
+                                                    <th>Path</th>
+                                                    <th>Description</th>
+                                                    <th>Run Test Case</th>
+                                                    <th>Schedule Test Case</th>
+                                                    <th>Run Schedule Test Case</th>
+                                                    <th>track the status of sceduled tests</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-center">
+                                                <tr *ngFor="let p of Tests | paginate: config | searchName :  filterNom :'testCaseName' ; let index ">
+
+                                                    <b><td>{{p.testCaseName}}</td></b>
+                                                    <td>{{p.testCasePath}}</td>
+                                                    <td>{{p.description}}</td>
+
+
+
+                                                    <td style='white-space: nowrap' class="center"><button class="btn btn-warning " id="btn1" (click)="runTest(p)"><i class="fa fa-play" aria-hidden="true"></i>
+                                                       
+                                                        <ngx-spinner bdColor="rgba(51,51,51,0.4)" [fullScreen] = "true" type="square-jelly-box">
+                                                            <p style="color: white;">Running...</p></ngx-spinner>
+
+                                                    </button></td>
+                                                    <td>
+                                                        <input type="datetime-local" [(ngModel)]="dates[index]" id="schedule" name="scheduleDate">
+                                                    </td>
+                                                    <td style='white-space: nowrap' class="center"><button class="btn btn-warning " id="btn1" (click)="runScheduleTest(p,index)"><i class="fa fa-play" aria-hidden="true"></i>
+                                                    
+                                                    </button></td>
+                                                    <b><td><a  class="btn btn-warning " (click)="goToLink('http://localhost:8000/dashboard/jobs')"><i class="fa fa-hand-pointer-o" aria-hidden="true"></i></a></td></b>
+
+
+                                            </tbody>
+
+                                        </table>
+
+                                        <div style="text-align: center; padding-left:0px;  ">
+                                            <pagination-controls (pageChange)=" pageChanged($event) "></pagination-controls>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

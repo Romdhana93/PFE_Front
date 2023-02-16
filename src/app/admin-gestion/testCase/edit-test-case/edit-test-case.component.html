@@ -1,0 +1,71 @@
+<body>
+    <section>
+        <div class="mask d-flex align-items-center h-100 gradient-custom-2 ">
+            <div class="container  ">
+                <div class="row">
+                    <div class=" col-md-10  ">
+                        <div class="card ">
+                            <div class="card-body p-5 ">
+                                <h2 class=" text-center mb-5 alert-secondary ">You Can Add Test case Now</h2>
+
+                                <form [formGroup]="testCaseForm" (ngSubmit)="updateTestCase()">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Test Case Name</label>
+                                        <input type="text" class="form-control" name="exampleInputEmail1" id="exampleInputName" placeholder="Enter the name of test case " formControlName="testCaseName">
+                                        <div class="text-danger" *ngIf="submitted && f.testCaseName.errors">
+                                            <p>Test case Name Is Required.</p>
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Test Case Path</label>
+
+                                        <input type="text" class="form-control" id="exampleInputClientName" placeholder="Enter the path of test case" formControlName="testCasePath">
+                                        <div class="text-danger" *ngIf="submitted && f.testCasePath .errors">
+                                            <p>Test case Path Is Required.</p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Description</label>
+
+                                        <input type="text" class="form-control" id="exampleInputClientName" placeholder="Enter the descreption of test case" formControlName="description">
+                                    </div>
+
+
+                                    <div class=" form-group ">
+                                        <div formGroupName="projet">
+                                            <label>Choose a Project</label>
+                                            <div class="input-group " id="drop ">
+                                                <div class="form-line ">
+                                                    <select formControlName="id">
+                                        
+                                        <option value=""  selected disabled>Choose a Project</option>
+
+                                        <option *ngFor="let projet of projects" value="{{projet.id}}">{{projet.name}}</option>
+                                      </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="text-center ">
+                                        <button type="submit" class="btn btn-secondary ">Update Test Case </button>
+                                        <button type="reset" value="Reset" class="btn btn-warning ">Reset</button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

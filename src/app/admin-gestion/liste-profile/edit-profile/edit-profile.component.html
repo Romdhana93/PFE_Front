@@ -1,0 +1,40 @@
+<body>
+    <section>
+        <div class="mask d-flex align-items-center h-100 gradient-custom-2 ">
+            <div class="container  ">
+                <div class="row">
+                    <div class=" col-md-10  ">
+                        <div class="card ">
+                            <div class="card-body p-5 ">
+                                <h2 class=" text-center mb-5 alert-secondary ">You Can Add User Now</h2>
+
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Name</label>
+                                        <input type="text" class="form-control" id="exampleInputName" placeholder="Enter full Name " [(ngModel)]="user.username" name="name">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email Address</label>
+
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="user.email" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="user.password" name="password">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-secondary" (click)="updateUser()">Update </button>
+                                    <button type="reset" class="btn btn-warning">Cancel  </button>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

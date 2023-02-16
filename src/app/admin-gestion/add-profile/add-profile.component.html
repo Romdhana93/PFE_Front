@@ -1,0 +1,84 @@
+<body>
+    <section>
+        <div class="mask d-flex align-items-center h-100 gradient-custom-2 ">
+            <div class="container  ">
+                <div class="row">
+                    <div class=" col-md-10  ">
+                        <div class="card ">
+                            <div class="card-body p-5 ">
+                                <h2 class=" text-center mb-5 alert-secondary ">You Can Add User Now</h2>
+
+                                <form #UserForm="ngForm" (ngSubmit)="UserForm.form.valid && addUser() ">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Name</label>
+                                        <input type="text" class="form-control" id="exampleInputName" placeholder="Enter full Name " [(ngModel)]="username" name="name" required #nameVar="ngModel" minlength="3" maxlength="20">
+
+                                        <div class="text-danger" *ngIf="UserForm.submitted && nameVar.errors">
+                                            <p *ngIf="nameVar.errors.required"> Name Is Required.</p>
+                                            <p *ngIf="nameVar.errors.minlength"> Name Minimum Length is 3 characters </p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email Address</label>
+
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email" #emailVar="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50">
+
+                                        <div class="text-danger" *ngIf="UserForm.submitted && emailVar.errors ">
+                                            <p *ngIf="emailVar.errors.required">Email Is Required.</p>
+                                            <p *ngIf="emailVar.errors?.pattern">This is not a valid Email!!!</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password" maxlength="40" minlength="6" required #passwordVar="ngModel">
+
+                                        <div class="text-danger" *ngIf="UserForm.submitted && passwordVar.errors ">
+                                            <p *ngIf="passwordVar.errors?.required">Password Is Required.</p>
+                                            <p *ngIf="passwordVar.errors?.minlength"> Password Minimum Length is 6 characters </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div>
+                                            <label>User Role</label>
+                                            <div class="input-group" id="drop">
+                                                <div class="form-line">
+                                                    <select [(ngModel)]="role" class="form-control" name="role" id="drop" (change)="update($event)" #selectVar="ngModel" [ngClass]="{ 'is-invalid': UserForm.submitted && selectVar.invalid }" required>
+                                                        <option value="undefined" selected disabled>Chose Role</option>
+                                                        <option *ngFor="let r of roles" value="{{r.name}}">
+                                                            {{r.name }}
+                                                        </option>
+                                                    </select>
+
+                                                    <div class="text-danger" *ngIf="UserForm.submitted && selectVar.invalid">
+                                                        <div *ngIf="selectVar.errors?.required">Role is required.</div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="text-center ">
+                                        <button type="submit " class="btn btn-secondary ">Add user </button>
+                                        <button type="reset" value="Reset" class="btn btn-warning ">Reset</button>
+
+
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
